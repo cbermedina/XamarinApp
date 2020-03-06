@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SuBienApp.Pages.PropertiesPage"
+             Title="Propiedades"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+  <StackLayout
+   Padding="8">
+    <SearchBar
+      Placeholder="Buscar..."
+      Text="{Binding PropertiesFilter, Mode=TwoWay}"
+      SearchCommand="{Binding SearchPropertyCommand}">
+    </SearchBar>
+    <ListView
+       ItemTemplate="{StaticResource PropertyItemTemplate}"
+       ItemsSource="{Binding Properties}"
+       HasUnevenRows="True"
+       IsPullToRefreshEnabled="True"
+       RefreshCommand="{Binding RefreshPropertiesCommand}"
+       IsRefreshing="{Binding IsRefreshingProperties, Mode=TwoWay}">
+
+      <ListView.ItemTemplate>
+
+      </ListView.ItemTemplate>
+    </ListView>
+
+  </StackLayout>
+  <ContentPage.ToolbarItems>
+    <ToolbarItem
+                 Icon="ic_action_add.png"
+                 Command="{Binding GoPropertyCommand}"
+                 CommandParameter="NewPropertyPage"/>
+  </ContentPage.ToolbarItems>
+</ContentPage>

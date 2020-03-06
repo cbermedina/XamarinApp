@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:suBienApp="clr-namespace:SuBienApp;assembly=SuBienApp"
+             xmlns:controls="clr-namespace:SuBienApp.Controls;assembly=SuBienApp"
+             x:Class="SuBienApp.Pages.ViewImage"
+                      BackgroundColor="{StaticResource BackgroundColor}"
+                      BindingContext="{Binding Main.PropertyUploadPhotoItemViewModel, Source={StaticResource Locator}}">
+  <ContentPage.Content>
+    <controls:PinchToZoomContainer>
+      <controls:PinchToZoomContainer.Content>
+        <AbsoluteLayout>
+          <controls:PanContainer>
+            <Image  Source="{Binding UrlImage}"  />
+          </controls:PanContainer>
+        </AbsoluteLayout>
+      </controls:PinchToZoomContainer.Content>
+    </controls:PinchToZoomContainer>
+  </ContentPage.Content>
+</ContentPage>

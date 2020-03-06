@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:controls="clr-namespace:SuBienApp.Controls;assembly=SuBienApp"
+         
+                    x:Class="SuBienApp.Pages.PropertyUploadPhotoPage"
+                    Title="Cargar imagenes"
+                    BackgroundColor="{StaticResource BackgroundColor}"
+                    BindingContext="{Binding Main, Source={StaticResource Locator}}">
+
+  <StackLayout BindingContext="{Binding PropertyUploadPhotoItemViewModel}"
+    Padding="8">
+    <ListView
+       ItemsSource="{Binding Images}"
+       HasUnevenRows="True"
+       IsPullToRefreshEnabled="false">
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout>
+
+              <Image HeightRequest="150" WidthRequest="150"  Source="{Binding Uri}">
+                <Image.GestureRecognizers>
+                  <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"  >
+                  </TapGestureRecognizer>
+                </Image.GestureRecognizers>
+              </Image>
+
+              <Label Text="{Binding Name}" TextColor="Black"></Label>
+              <Button Text="Subir" IsVisible="{ Binding IsGoUpVisible  }"  Clicked="Button_OnClicked"  CommandParameter="{Binding}" ></Button>
+              <Button Text="Bajar" IsVisible="{ Binding IsGetLowVisible  }"  Clicked="Button_OnClicked"  CommandParameter="{Binding}" ></Button>
+            </StackLayout>
+
+          </ViewCell>
+
+        </DataTemplate>
+      </ListView.ItemTemplate>
+
+    </ListView>
+
+  </StackLayout>
+
+
+
+
+  <ContentPage.ToolbarItems >
+    <ToolbarItem
+      Icon="ic_action_camera.png">
+      <ToolbarItem.Command>
+        <Binding Path="PropertyUploadPhotoItemViewModel.TakePictureCommand" />
+      </ToolbarItem.Command>
+    </ToolbarItem>
+    <ToolbarItem
+        Icon="ic_action_perm_media.png">
+      <ToolbarItem.Command>
+        <Binding Path="PropertyUploadPhotoItemViewModel.PickPictureCommand" />
+      </ToolbarItem.Command>
+    </ToolbarItem>
+
+  </ContentPage.ToolbarItems>
+
+</ContentPage>

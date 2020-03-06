@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BaseAddress" xml:space="preserve">
+    <value>www.andresmedira.com</value>
+  </data>
+  <data name="ConfirmDeleteMessage" xml:space="preserve">
+    <value>Esta seguro que desea eliminar el registro seleccionado?</value>
+  </data>
+  <data name="ConfirmDeleteMessageTitle" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="ConfirmMessageAcept" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="ConfirmMessageCancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="CustomerAddFailed" xml:space="preserve">
+    <value>El cliente no fue creado correctamente.</value>
+  </data>
+  <data name="CustomerAddSuccess" xml:space="preserve">
+    <value>El cliente fue creado correctamente.</value>
+  </data>
+  <data name="CustomerBathrooms" xml:space="preserve">
+    <value>El número de baños es requerido</value>
+  </data>
+  <data name="CustomerDeleteFailed" xml:space="preserve">
+    <value>El registro no fue eliminado correctamente.</value>
+  </data>
+  <data name="CustomerDeleteSuccess" xml:space="preserve">
+    <value>El registro fue eliminado correctamente</value>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>Debe ingresar el nombre</value>
+  </data>
+  <data name="CustomerUpdateFailed" xml:space="preserve">
+    <value>El cliente no fue actualizado correctamente.</value>
+  </data>
+  <data name="CustomerUpdateSuccess" xml:space="preserve">
+    <value>El cliente fue actualizado correctamente.</value>
+  </data>
+  <data name="GetFaild" xml:space="preserve">
+    <value>Error consultando información.</value>
+  </data>
+  <data name="GetSuccess" xml:space="preserve">
+    <value>La información fue consultada correctamente.</value>
+  </data>
+  <data name="LoginIsEmailEntry" xml:space="preserve">
+    <value>El usuario es requerido.</value>
+  </data>
+  <data name="LoginIsEmailValid" xml:space="preserve">
+    <value>La dirección de correo no es válida.</value>
+  </data>
+  <data name="LoginIsFailed" xml:space="preserve">
+    <value>En este momento el ingreso a la app no se encuentra disponible.</value>
+  </data>
+  <data name="LoginIsNotValid" xml:space="preserve">
+    <value>El usuario o la contraseña no es válido.</value>
+  </data>
+  <data name="LoginIsPasswordEntry" xml:space="preserve">
+    <value>La contraseña es requerida.</value>
+  </data>
+  <data name="LoginIsSuccess" xml:space="preserve">
+    <value>Bienveni@ a SuBien.</value>
+  </data>
+  <data name="PhoneCall" xml:space="preserve">
+    <value>Para realizar llamadas primero debe ingresar el número.</value>
+  </data>
+  <data name="PickPicture" xml:space="preserve">
+    <value>:( No camera available.</value>
+  </data>
+  <data name="PickPictureTitle" xml:space="preserve">
+    <value>No Camera</value>
+  </data>
+  <data name="PropertyAddFailed" xml:space="preserve">
+    <value>La propiedad no fue ingresada correctamente.</value>
+  </data>
+  <data name="PropertyAddSuccess" xml:space="preserve">
+    <value>La propiedad fue ingresada correctamente.</value>
+  </data>
+  <data name="PropertyContact" xml:space="preserve">
+    <value>El contacto es requerido</value>
+  </data>
+  <data name="PropertyDeleteFailed" xml:space="preserve">
+    <value>El registro no fue eliminado correctamente.</value>
+  </data>
+  <data name="PropertyDeleteSuccess" xml:space="preserve">
+    <value>El registro fue eliminado correctamente</value>
+  </data>
+  <data name="PropertyName" xml:space="preserve">
+    <value>El nombre es requerido</value>
+  </data>
+  <data name="PropertyPhone" xml:space="preserve">
+    <value>El teléfono es requerido</value>
+  </data>
+  <data name="PropertyUpdateFailed" xml:space="preserve">
+    <value>La propiedad no fue actualizada correctamente.</value>
+  </data>
+  <data name="PropertyUpdateSuccess" xml:space="preserve">
+    <value>La propiedad fue actualizada correctamente</value>
+  </data>
+  <data name="SavePhotoAddFailed" xml:space="preserve">
+    <value>La imagen no fue almacenada correctamente</value>
+  </data>
+  <data name="SavePhotoAddSuccess" xml:space="preserve">
+    <value>La imagen  fue almacenada correctamente</value>
+  </data>
+  <data name="TakePicture" xml:space="preserve">
+    <value>Pick photo is not supported !</value>
+  </data>
+  <data name="TakePictureTitle" xml:space="preserve">
+    <value>Oops</value>
+  </data>
+  <data name="TypeError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="TypeInformation" xml:space="preserve">
+    <value>Información</value>
+  </data>
+  <data name="TypeValue" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="UserUpdateFailed" xml:space="preserve">
+    <value>El usuario no fue actualizado</value>
+  </data>
+  <data name="UserUpdateSuccess" xml:space="preserve">
+    <value>Usuario actualizado correctamente</value>
+  </data>
+</root>

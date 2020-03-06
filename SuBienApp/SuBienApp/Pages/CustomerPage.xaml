@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SuBienApp.Pages.CustomerPage"
+              xmlns:pages="clr-namespace:SuBienApp.Pages;assembly=SuBienApp"
+             Title="Clientes"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+ 
+  <StackLayout 
+    Padding="8">
+    <SearchBar
+      Placeholder="Buscar..."
+      Text="{Binding CustomersFilter, Mode=TwoWay}"
+      SearchCommand="{Binding SearchCustomerCommand}">
+    </SearchBar>
+    <ListView
+       ItemTemplate="{StaticResource CustomerItemTemplate}"
+       ItemsSource="{Binding Customers}"
+       HasUnevenRows="True"
+       IsPullToRefreshEnabled="True"
+       RefreshCommand="{Binding RefreshCustomersCommand}"
+       IsRefreshing="{Binding IsRefreshingCustomers, Mode=TwoWay}">
+
+      <ListView.ItemTemplate>
+
+      </ListView.ItemTemplate>
+    </ListView>
+
+  </StackLayout>
+  <ContentPage.ToolbarItems>
+    <ToolbarItem
+                 Icon="ic_action_add.png"
+                 Command="{Binding NewCustomerCommand}"
+                 CommandParameter="NewCustomerPage"/>
+  </ContentPage.ToolbarItems>
+</ContentPage>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage 
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SuBienApp.Pages;assembly=SuBienApp"
+            x:Class="SuBienApp.Pages.PropertyTabbedPage">
+  <local:PropertyDetailPage Title="Detalle Propiedad" />
+  <local:PropertyUploadPhotoPage Title="Imagenes Propiedad" />
+  <!--<NavigationPage Title="Imagenes" Icon="ic_action_action_property.png">
+    <x:Arguments>
+      <local:PropertyDetailPage />
+    </x:Arguments>
+  </NavigationPage>-->
+  
+</TabbedPage>

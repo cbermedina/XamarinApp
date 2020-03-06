@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SuBienApp.Pages.MenuPage"
+             Title="Menu"
+             BackgroundColor="{StaticResource MenuColor}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+  <StackLayout Padding="8">
+    <StackLayout Orientation="Horizontal">
+    <Label 
+      Text="Su Bien"
+      TextColor="{StaticResource AccentColor}"
+      FontSize="24"
+      FontAttributes="Bold"
+      HorizontalOptions="StartAndExpand"
+      VerticalOptions="Center"/>
+      <Image
+        Source="ic_subien.png"
+        WidthRequest="80"
+        HeightRequest="80"
+        HorizontalOptions="End"
+        VerticalOptions="Center" >
+      </Image>
+      </StackLayout>
+    <BoxView
+       Color = "{StaticResource AccentColor}"
+       HeightRequest = "3">
+    </BoxView>
+  <ListView
+      ItemsSource="{Binding Menu}"
+      IsPullToRefreshEnabled="True"
+      IsRefreshing="{Binding IsRefreshingMenu, Mode=TwoWay}"
+      >
+    <ListView.ItemTemplate  >
+      <DataTemplate>
+        <ViewCell >
+          <Grid>
+            <Grid.GestureRecognizers>
+              <TapGestureRecognizer Command="{Binding NavigateCommand}"/>
+            </Grid.GestureRecognizers>
+
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"></ColumnDefinition>
+              <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image
+              Source="{Binding Icon}"
+              WidthRequest="50"
+              HeightRequest="50"/>
+            <Label
+              Grid.Column="1"
+              VerticalOptions="Center"
+              TextColor="{StaticResource MenuFontColor}"
+              Text="{Binding Title}"/>
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+  </StackLayout>
+</ContentPage>

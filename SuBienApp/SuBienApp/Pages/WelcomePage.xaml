@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SuBienApp.Pages.WelcomePage"
+             BackgroundColor="{StaticResource MainColor}"
+              Title="Mis Pedidos"
+              BindingContext="{Binding Main, Source={StaticResource Locator}}">
+              <StackLayout
+                Spacing="20"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+                <Label
+                  TextColor="{StaticResource BackgroundColor}"
+                  FontSize="20"
+                  Text="Bienveni@s"/>
+                <Button
+                  Command="{Binding StartCommand}"
+                  Style="{StaticResource GeneralButton}"
+                  Text="Iniciar"/>
+  </StackLayout>
+</ContentPage>

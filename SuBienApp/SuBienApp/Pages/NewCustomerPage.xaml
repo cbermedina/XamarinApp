@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SuBienApp.Pages.NewCustomerPage"
+             xmlns:controls="clr-namespace:SuBienApp.Controls;assembly=SuBienApp"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="Nuevo Cliente"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+
+  <ScrollView BindingContext="{Binding NewCustomer}">
+
+    <StackLayout Padding="8">
+      <!--Name-->
+      <Label
+       Style="{StaticResource GeneralLabel}"
+       Text="Nombre"/>
+      <Entry
+        Style="{StaticResource GeneralEntry}"
+        Text="{Binding Name, Mode=TwoWay}"
+        />
+      <!--Last Name-->
+      <Label
+        Style="{StaticResource GeneralLabel}"
+        Text="Apellidos"/>
+      <Entry
+        Style="{StaticResource GeneralEntry}"
+        Text="{Binding LastName, Mode=TwoWay}"/>
+      <!--Mail-->
+      <Label
+        Style="{StaticResource GeneralLabel}"
+        Text="E-mail"/>
+      <Entry
+        Style="{StaticResource GeneralEntry}"
+        Text="{Binding Mail, Mode=TwoWay}"
+        Keyboard="Email" />
+
+      <!--Telephone-->
+      <Label
+       Style="{StaticResource GeneralLabel}"
+       Text="Teléfono fijo"/>
+      <Entry
+        Style="{StaticResource GeneralEntry}"
+        Text="{Binding Telephone, Mode=TwoWay}"
+        BackgroundColor="{StaticResource BackgroundColor}" />
+
+      <!--Phone-->
+      <Label
+       Style="{StaticResource GeneralLabel}"
+       Text="Celular"/>
+      <Grid RowSpacing="1" ColumnSpacing="0" >
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*"  />
+          <ColumnDefinition Width="*"  />
+          <ColumnDefinition Width="40"  />
+          <ColumnDefinition Width="40"  />
+        </Grid.ColumnDefinitions>
+        <Entry Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+               
+                   Style="{StaticResource GeneralEntry}"
+                   Text="{Binding Phone, Mode=TwoWay}"
+                   BackgroundColor="{StaticResource BackgroundColor}"
+                   Keyboard="Numeric" />
+
+        <Image 
+          Grid.Row="0" 
+          Grid.Column="3" 
+          Grid.ColumnSpan="1"
+          Source="ic_action_history.png">
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding PhoneAddCommand}"></TapGestureRecognizer>
+          </Image.GestureRecognizers>
+        </Image>
+        <Image 
+          Grid.Row="0" 
+          Grid.Column="4"
+          Grid.ColumnSpan="1"
+          Source="ic_action_call_phone.png">
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding PhoneCallCommand}"></TapGestureRecognizer>
+          </Image.GestureRecognizers>
+        </Image>
+        
+        <!--Property Type-->
+        <Label
+              Grid.Row="1"
+              Grid.Column="0"
+              Grid.ColumnSpan="4"
+              Style="{StaticResource GeneralLabel}"
+              Text="Tipo de propiedad"/>
+        <controls:BindablePicker
+              Title="Seleccione..."
+              Grid.Row="2"
+              Grid.Column="0"
+              Grid.ColumnSpan="4"
+              DisplayMemberPath="Name"
+              SelectedValuePath="PropertyTypeId"
+              ItemsSource="{Binding ObjectList}"
+              SelectedValue="{Binding Path=PropertyTypeId, Mode=TwoWay}"
+              SelectedItem="{Binding Path=StaticSelectedItem, Mode=TwoWay}" />
+        
+      </Grid>
+      <Grid RowSpacing="1" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="50" />
+        </Grid.ColumnDefinitions>
+        <!--Province-->
+        <Label
+          Grid.Row="0"
+          Grid.Column="0"
+          Grid.ColumnSpan="2"
+          Style="{StaticResource GeneralLabel}"
+          Text="Sector"/>
+        <Editor  
+          Grid.Row="1" 
+          Grid.Column="0"
+          Grid.RowSpan="2"
+          Text="{Binding Province, Mode=TwoWay}" />
+        <Image Grid.Row="1" Grid.Column="1" Source="ic_action_add.png">
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding ProvinceCommand}"></TapGestureRecognizer>
+          </Image.GestureRecognizers>
+        </Image>
+      </Grid>
+      <!--Price-->
+      <Label
+        Style="{StaticResource GeneralLabel}"
+        Text="Presupuesto"/>
+      <Entry
+        Style="{StaticResource GeneralEntry}"
+        Text="{Binding Price, Mode=TwoWay}"
+        Keyboard="Numeric"/>
+      <!--<Slider
+        Maximum="2000000000"
+        Minimum="2000000"
+        Value="{Binding Price, Mode=TwoWay}"
+        ></Slider>-->
+      <!-- # Bedrooms-->
+      <Label
+          HorizontalOptions="Start"
+          Style="{StaticResource GeneralLabel}"
+          Text="Número Habitaciones"
+          VerticalOptions="Center"/>
+      <StackLayout Orientation="Horizontal">
+        <Entry
+           HorizontalOptions="FillAndExpand"
+           Style="{StaticResource GeneralEntry}"
+          Text="{Binding Bedrooms, Mode=TwoWay}"
+          Keyboard="Numeric"
+          VerticalOptions="Center"/>
+        <Stepper
+          Value="{Binding Bedrooms, Mode=TwoWay}"
+          Style="{StaticResource GeneralStepper}"
+          HorizontalOptions="End"
+          VerticalOptions="Center"/>
+      </StackLayout>
+      <!-- # Bathrooms-->
+      <Label
+       HorizontalOptions="Start"
+       Style="{StaticResource GeneralLabel}"
+       Text="Número Baños"
+       VerticalOptions="Center"/>
+      <StackLayout Orientation="Horizontal">
+        <Entry
+          Text="{Binding Bathrooms, Mode=TwoWay}"
+          Style="{StaticResource GeneralEntry}"
+          Keyboard="Numeric"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="Center"/>
+        <Stepper
+                 Value="{Binding Bathrooms, Mode=TwoWay}"
+                 Style="{StaticResource GeneralStepper}"
+                 HorizontalOptions="End"
+                 VerticalOptions="Center"/>
+      </StackLayout>
+      <!--Mts-->
+      <Label
+         Style="{StaticResource GeneralLabel}"
+         Text="Metros Cuadrados"/>
+      <StackLayout Orientation="Horizontal">
+        <Entry
+          Style="{StaticResource GeneralEntry}"
+          Text="{Binding Mts, Mode=TwoWay}"
+          Keyboard="Numeric"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="Center"/>
+        <Stepper
+          Style="{StaticResource GeneralStepper}"
+          Value="{Binding Mts, Mode=TwoWay}"
+          HorizontalOptions="End"
+          VerticalOptions="Center"/>
+      </StackLayout>
+      <!--Floor-->
+      <Label
+        Style="{StaticResource GeneralLabel}"
+        Text="Número de piso"
+        HorizontalOptions="Start"
+        VerticalOptions="Center"/>
+      <StackLayout Orientation="Horizontal">
+        <Entry
+          Style="{StaticResource GeneralEntry}"
+          Text="{Binding Floor, Mode=TwoWay}"
+          Keyboard="Numeric"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="Center"/>
+        <Stepper
+                 Value="{Binding Floor, Mode=TwoWay}"
+                 Style="{StaticResource GeneralStepper}"
+                 HorizontalOptions="End"
+                 VerticalOptions="Center"/>
+      </StackLayout>
+      <!--Others-->
+      <StackLayout Orientation="Horizontal">
+        <!--Elevator-->
+        <Label
+          Style="{StaticResource GeneralLabel}"
+          Text="Asensor"/>
+        <Switch
+          IsToggled="{Binding Elevator,Mode=TwoWay}"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        <!--Parking-->
+        <Label
+         Style="{StaticResource GeneralLabel}"
+         Text="Parqueadero"/>
+        <Switch
+          IsToggled="{Binding Parking,Mode=TwoWay}"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+
+      </StackLayout>
+
+      <StackLayout Orientation="Horizontal">
+        <!--Fourthuseful-->
+        <Label
+         Style="{StaticResource GeneralLabel}"
+         Text="Cuarto útil"/>
+        <Switch
+          IsToggled="{Binding Fourthuseful,Mode=TwoWay}"
+          HorizontalOptions="Center"
+          VerticalOptions="CenterAndExpand" />
+        <!--Gatedcommunity-->
+        <Label
+          Style="{StaticResource GeneralLabel}"
+          Text="Unidad Cerrada"/>
+        <Switch
+          IsToggled="{Binding Gatedcommunity,Mode=TwoWay}"
+          HorizontalOptions="Center"
+          VerticalOptions="CenterAndExpand" />
+
+      </StackLayout>
+      <!--Observation-->
+      <Label
+        Style="{StaticResource GeneralLabel}"
+        Text="Observación"/>
+      <Editor
+        Style="{StaticResource GeneralEditor}"
+        Text="{Binding Observation, Mode=TwoWay}"/>
+      <ActivityIndicator
+              IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                                         />
+
+      <Button
+        Style="{StaticResource GeneralButton}"
+        Command="{Binding NewCustomerCommand}"
+        Text="Guardar" />
+    </StackLayout>
+  </ScrollView>
+  <!--<ContentPage.ToolbarItems >
+    <ToolbarItem
+      Icon="ic_action_save.png">
+      <ToolbarItem.Command>
+        <Binding Path="Button." />
+      </ToolbarItem.Command>
+    </ToolbarItem>
+  </ContentPage.ToolbarItems>-->
+</ContentPage>

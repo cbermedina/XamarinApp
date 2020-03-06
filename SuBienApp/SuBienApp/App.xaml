@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:SuBienApp.Infrastructure;assembly=SuBienApp"
+             xmlns:controls="clr-namespace:SuBienApp.Controls;assembly=SuBienApp"
+             x:Class="SuBienApp.App">
+  <Application.Resources>
+    <ResourceDictionary>
+
+      <!-- General colors -->
+      <Color x:Key="MainColor">#1b2b32</Color>
+      <Color x:Key="FontColor">#1b2b32</Color>
+      <Color x:Key="MenuColor">#a3abaf</Color>
+      <Color x:Key="MenuFontColor">#e1e7e8</Color>
+      <Color x:Key="BackgroundColor">#e1e7e8</Color>
+      <Color x:Key="AccentColor">#b22e2f</Color>
+      <Color x:Key="RedColor">#AB1A25</Color>
+      <Color x:Key="OrangeColor">#D97925</Color>
+      <!-- Locator -->
+      <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
+
+      <!-- Fonts -->
+      <OnPlatform x:Key="GeneralButtonFont" x:TypeArguments="Font" iOS="12" Android="14" WinPhone="16"/>
+      <!--Label-->
+      <Style x:Key="GeneralLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource FontColor}"/>
+
+      </Style>
+
+      <!--Entry-->
+      <Style x:Key="GeneralEntry" TargetType="Entry">
+        <Setter Property="TextColor" Value="{StaticResource FontColor}"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}"/>
+      </Style>
+      <!--Editor-->
+      <Style x:Key="GeneralEditor" TargetType="Editor">
+        <Setter Property="HeightRequest" Value="100"/>
+        <Setter Property="TextColor" Value="{StaticResource FontColor}"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}"/>
+      </Style>
+
+
+      <!--Stepper-->
+      <Style x:Key="GeneralStepper" TargetType="Stepper">
+        <Setter Property="Increment" Value="1"/>
+        <Setter Property="Minimum" Value="0"/>
+        <Setter Property="Maximum" Value="999999"/>
+      </Style>
+
+      <!--Slider-->
+      <Style x:Key="GeneralSlider" TargetType="Slider">
+        <Setter Property="Minimum" Value="0"/>
+        <Setter Property="Maximum" Value="2000000000"/>
+      </Style>
+      <!-- Styles -->
+      <Style x:Key="GeneralButton" TargetType="Button">
+        <Setter Property="Font" Value="{StaticResource GeneralButtonFont}"/>
+        <Setter Property="BorderRadius" Value="25"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource FontColor}"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+      </Style>
+
+      <!-- Styles TargetType="Button" -->
+      <Style TargetType="Button">
+        <Setter Property="Font" Value="{StaticResource GeneralButtonFont}"/>
+        <Setter Property="BorderRadius" Value="25"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource FontColor}"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <!--<Setter Property="Font" Value="{StaticResource GeneralButtonFont}"/>
+        <Setter Property="BorderRadius" Value="20"/>
+        <Setter Property="HeightRequest" Value="40"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource MainColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource BackgroundColor}"/>-->
+      </Style>
+
+      <!-- Data Templates -->
+      <DataTemplate x:Key="OrderItemTemplate">
+        <ViewCell>
+          <Grid Padding="8">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"></ColumnDefinition>
+              <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image
+              Source="icon.png"
+              VerticalOptions="Start"
+              WidthRequest="50"
+              HeightRequest="50"/>
+            <StackLayout Grid.Column="1">
+              <Label
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding Title}"/>
+              <Label
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding Description}"/>
+              <Label
+                VerticalOptions="Center"
+                TextColor="{StaticResource MainColor}"
+                Text="{Binding DeliveryDate, StringFormat='{0:yyyy/MM/dd}'}"/>
+            </StackLayout>
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+
+      <!--Data Emplate Customer-->
+      <DataTemplate x:Key="CustomerItemTemplate" >
+        <ViewCell>
+          <Grid >
+            <Grid.GestureRecognizers>
+              <TapGestureRecognizer Command="{Binding CustomerDetailCommand}"/>
+            </Grid.GestureRecognizers>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"></ColumnDefinition>
+              <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="1">
+              <Label
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding Name,StringFormat='Nombre: {0}' }"/>
+              <Label
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding LastName ,StringFormat='Apellidos: {0}' }"/>
+              <Label
+               VerticalOptions="Center"
+               TextColor="{StaticResource FontColor}"
+               Text="{Binding Mail,StringFormat='E-mail: {0}' }"/>
+              <Label
+              VerticalOptions="Center"
+              TextColor="{StaticResource FontColor}"
+              Text="{Binding Telephone,StringFormat='Teléfono fijo: {0}' }"/>
+              <Label
+              VerticalOptions="Center"
+              TextColor="{StaticResource FontColor}"
+              Text="{Binding Phone,StringFormat='Celular: {0}' }"/>
+            </StackLayout>
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+
+      <!--Data Template Property-->
+      <DataTemplate x:Key="PropertyItemTemplate" >
+        <ViewCell>
+          <Grid >
+            <Grid.GestureRecognizers>
+              <TapGestureRecognizer Command="{Binding PropertyDetailCommand}"/>
+            </Grid.GestureRecognizers>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"></ColumnDefinition>
+              <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="1">
+              <Label
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding Contact,StringFormat='Contacto: {0}' }"/>
+              <Label
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding Name ,StringFormat='Nombre: {0}' }"/>
+              <Label
+               VerticalOptions="Center"
+               TextColor="{StaticResource FontColor}"
+               Text="{Binding Mail,StringFormat='E-mail: {0}' }"/>
+              <Label
+              VerticalOptions="Center"
+              TextColor="{StaticResource FontColor}"
+              Text="{Binding Phone,StringFormat='Teléfono: {0}' }"/>
+            </StackLayout>
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>
